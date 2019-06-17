@@ -1,0 +1,16 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': isLoveIt(),
+                'list-group-item-danger': isDontLoveIt() }">
+    <h3 [ngStyle]="{color: getColor()}">
+      <p class="text-right"><small><sub><i>{{getDate() | date: 'dd/MM/yyyy, HH:mm'}}</i></sub></small></p>
+      {{ title }}
+    </h3>
+
+    <h5 [ngStyle]="{color: getColor()}">{{ content }}</h5>
+    <button class="btn btn-success btn-sm" 
+            [disabled]="!isAuth"
+            (click)="onLoveIt()">Love It!</button>
+    <button class="btn btn-danger btn-sm" 
+            [disabled]="!isAuth"
+            (click)="onDontLoveIt()">Dont't love It!</button>
+  </li>
